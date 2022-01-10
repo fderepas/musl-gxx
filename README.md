@@ -18,14 +18,10 @@ Given a script `compile_alpine.sh`:
 # this script is to be run from an alpine docker image with compilers
 set -e
 set -x
-if [ "$#" -ne 1 ]; then
-    echo "You must enter the UID under which to generate files"
-    exit 1
-fi
 cd /mnt
-make # cross compiles for musl
+make # or do anything i want to compile
 ```
-I can be invoked via the command:
+It can be invoked via the command:
 ```
 docker run -it --mount \
    type=bind,source=/path_to_invoke_compilation_script,target=/mnt \
